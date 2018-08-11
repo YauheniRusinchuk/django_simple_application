@@ -1,0 +1,16 @@
+{% extends 'core/index.html' %}
+
+{% block content %}
+
+  <div class="back_btn"><a href="/">back</a></div>
+
+<div class='addpost'>
+    <form method="post" enctype="multipart/form-data">
+      {{form.as_p}}
+      {% csrf_token %}
+      <button type="submit">
+          ADD
+      </button>
+    </form>
+</div>
+{% endblock content %}

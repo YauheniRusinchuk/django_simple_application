@@ -1,0 +1,32 @@
+{% extends 'core/index.html' %}
+
+
+{% block content %}
+
+<div id="scroller">
+    <span>UP</span>
+</div>
+
+  <div class='post_view_only'>
+    <h2>{{post.title}}</h2>
+    <p>{{post.body}}</p>
+    {% if post.img %}
+      <img src="{{post.img.url}}" />
+    {% endif %}
+  </div>
+
+  <div class='comments'>
+      {% for comment in comments %}
+        <p class="comment_view">{{comment.text}}</p>
+      {% endfor %}
+  </div>
+
+  <div class="form_comment_view">
+    <form method="post" class="comment_form">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input class="btn_form" type='submit' value='add'/>
+    </form>
+  </div>
+
+{% endblock content %}

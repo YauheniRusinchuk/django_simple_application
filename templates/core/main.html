@@ -1,0 +1,17 @@
+{% extends 'core/index.html' %}
+
+
+{% block content  %}
+  {% include 'core/add.html' %}
+  <div class="main">
+    {% for p in posts %}
+      <div class='post_view'>
+        <a href="{% url 'core:detail' pk=p.pk %}">{{p.title}}</a>
+        <p>{{p.body}}</p>
+        {% if p.img %}
+            <img src="{{p.img.url}}" />
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
